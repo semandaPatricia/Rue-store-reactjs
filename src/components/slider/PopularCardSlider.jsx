@@ -3,12 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styled from "styled-components";
-import { popularProducts } from "../data";
+import { popularProducts } from "../../data";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 
-import '../css/slider.css';
-import imgGirl from '../assets/images/defaultImage.jpg';
+import '../slider/slider.css';
+import imgGirl from '../../assets/images/defaultImage.jpg';
 
 const Container = styled.div`
   padding: 20px;

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Newsletter from '../../components/Newsletter'
-import PopularCardSlider from '../../components/PopularCardSlider'
+import PopularCardSlider from '../../components/slider/PopularCardSlider'
 import Categories from '../../components/Categories'
 
 const Home = () => {
