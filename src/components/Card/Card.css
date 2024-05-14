@@ -1,0 +1,55 @@
+.card-design {
+    width: 280px;
+    display: flex;
+   justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px;
+    margin-bottom: 50px;
+  }
+  .card-design .image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-design .image:hover .secondImg {
+    z-index: 2;
+  }
+  .card-design .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+  }
+  .card-design .image .mainImg {
+    z-index: 1;
+  }
+  .card-design .image span {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: white;
+    color: teal;
+    padding: 3px 5px;
+    z-index: 3;
+    font-weight: 500;
+    font-size: 12px;
+  }
+  .card-design h2 {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .card-design .prices {
+    display: flex;
+    gap: 20px;
+  }
+  .card-design .prices h3 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .card-design .prices h3:first-child {
+    color: gray;
+    text-decoration: line-through;
+  }
+  

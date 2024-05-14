@@ -7,11 +7,11 @@ import Men from './pages/men';
 import Teens from './pages/teens';
 import Kids from './pages/kids';
 import Home from './pages/Home';
-import Navbar from './components/Navbar'
-import Herosection from './components/Herosection'
+import Navbar from './components/navbar/Navbar'
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Product from './pages/Product';
+
 
 function App() {
  
@@ -25,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login/>} />
+          
           <Route path="/women" element={<Women  />} />
           <Route path="/men" element={<Men />} />
           <Route path="/teens" element={<Teens />} />

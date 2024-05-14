@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Herosection = () => {
+const Categories = () => {
   return (
     
     <section className="section">
@@ -34,4 +34,4 @@ const Herosection = () => {
   )
 }
 
-export default Herosection
+export default Categories

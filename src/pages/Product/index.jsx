@@ -1,187 +1,174 @@
-
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import styled from "styled-components";
-import Footer from "../../components/Footer";
-
-import { mobile } from "../../responsive.js";
-
-const Container = styled.div``;
-
-const Wrapper = styled.div`
-  padding: 30px;
-  display: flex;
-  flex-wrap: wrap; /* Allow flex items to wrap to next line */
-  ${mobile({ padding: "10px", flexDirection:"column",gap: "1rem" })}
-`;
-
-const ImgContainer = styled.div`
-  flex: 1;
-  max-width: 50%; /* Each column takes up maximum half of the container width */
-  @media only screen and (max-width: 768px) {
-    max-width: 100%; /* On smaller screens, take up full width */
-   
-  }
-`;
-
-const Image = styled.img`
-  width: 100%;
-  height: auto; /* Allow the height to adjust based on aspect ratio */
-  object-fit: cover; /* Ensure the image covers its container */
-  
-  ${mobile({ height: "40vh" })} /* Adjust height for mobile screens */
-`;
-
-const InfoContainer = styled.div`
-flex: 1;
-padding: 0px 50px;
-${mobile({ padding: "10px" })}
-`;
-
-const Title = styled.h1`
-  font-weight: 200;
-`;
-
-const Desc = styled.p`
-margin: 20px 0px;
-@media only screen and (max-width: 768px) {
-  display: none; /* Hide the description on smaller screens */
-}
-`;
-
-const Price = styled.span`
-  font-weight: 100;
-  font-size: 40px;
-  @media only screen and (max-width: 768px) {
-    font-size: 24px; /* Adjust font size for smaller screens */
-  }
-`;
-
-const FilterContainer = styled.div`
-  width: 50%;
-  margin: 30px 0px;
-  display: flex;
-  justify-content: space-between;
-  ${mobile({ width: "100%" })}
-`;
-
-const Filter = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const FilterTitle = styled.span`
-  font-size: 20px;
-  font-weight: 200;
-`;
-
-const FilterColor = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-  margin: 0px 5px;
-  cursor: pointer;
-`;
-
-const FilterSize = styled.select`
-  margin-left: 10px;
-  padding: 5px;
-`;
-
-const FilterSizeOption = styled.option``;
-
-const AddContainer = styled.div`
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  ${mobile({ width: "100%" })}
-`;
-
-const AmountContainer = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 700;
-`;
-
-const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
-  border: 1px solid teal;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 5px;
-`;
-
-const Button = styled.button`
-  padding: 10px;
-  border: 2px solid teal;
-  background-color: white;
-  cursor: pointer;
-  font-weight: 500;
-
-  &:hover{
-      background-color: #f8f4f4;
-  }
-  @media only screen and (max-width: 768px) {
-    padding: 10px 16px; /* Adjust padding for smaller screens */
-    font-size: 14px; /* Adjust font size for smaller screens */
-  }
-`;
+import React from "react";
+import { useState } from "react";
+import "./Product.css";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import BalanceIcon from "@mui/icons-material/Balance";
+//import useFetch from "../../hooks/useFetch";
+import { useParams } from "react-router-dom";
+//import { useDispatch } from "react-redux";
+//import { addToCart } from "../../redux/cartReducer";
 
 const Product = () => {
+  const id = useParams().id;
+  const [selectedImg, setSelectedImg] = useState("img");
+  const [quantity, setQuantity] = useState(1);
+
+  //const dispatch = useDispatch();
+  //const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
+
+  const productDetailItem = {
+    images: [
+      {
+        img:
+          "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",
+        img2:
+          "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",
+      },
+      {
+        img:
+          "https://images.pexels.com/photos/1667088/pexels-photo-1667088.jpeg?auto=compress&cs=tinysrgb&w=600",
+        img2:
+          "https://images.pexels.com/photos/1667088/pexels-photo-1667088.jpeg?auto=compress&cs=tinysrgb&w=600",
+      },
+      {
+        img:
+          "https://images.pexels.com/photos/2697787/pexels-photo-2697787.jpeg?auto=compress&cs=tinysrgb&w=600",
+        img2:
+          "https://images.pexels.com/photos/2697787/pexels-photo-2697787.jpeg?auto=compress&cs=tinysrgb&w=600",
+      },
+      {
+        img:
+          "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        img2:
+          "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      },
+      {
+        img:
+          "https://images.pexels.com/photos/3910071/pexels-photo-3910071.jpeg?auto=compress&cs=tinysrgb&w=600",
+        img2:
+          "https://images.pexels.com/photos/3910071/pexels-photo-3910071.jpeg?auto=compress&cs=tinysrgb&w=600",
+      },
+    ],
+    title: " Half Hoodie ",
+    reviews: "150",
+    availability: true,
+    brand: "apex",
+    category: "Tshirt",
+    sku: "BE45VGTRK",
+    price: 450,
+    previousPrice: 599,
+    description:
+      "Relaxed fit sleeveless hoodie with an adjustable hood. Featuring welt hip pockets, ribbed trims and a printed logo.",
+    size: ["XS", "S", "M", "L", "XL"],
+    color: ["yellow", "white", "red"],
+  };
+
   return (
-    <Container className="container mx-auto">
- <Wrapper >
-    {/* Image Container */}
-        <ImgContainer >
-          <Image src="https://images.pexels.com/photos/6770814/pexels-photo-6770814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  className="w-full md:h-auto md:max-h-full object-cover"/>
-        </ImgContainer>
-         {/* Info Container */}
-        <InfoContainer>
-          <Title className="text-xl font-semibold mb-2">Denim skirt</Title>
-          <Desc className="text-sm  mb-4">
-          High-waist skirt with five pockets. Faded effect. Front slit hem and seamless finish. Front zip fly and metal button fastening.
-          </Desc>
-          <Price  className="">$ 20</Price>
-          <FilterContainer>
-             {/* Color Filter */}
-            <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
-            </Filter>
-            {/* Size Filter */}
-            <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize  >
-                <FilterSizeOption>XS</FilterSizeOption>
-                <FilterSizeOption>S</FilterSizeOption>
-                <FilterSizeOption>M</FilterSizeOption>
-                <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
-            </Filter>
-          </FilterContainer>
-           {/* Quantity Control */}
-          <AddContainer>
-            <AmountContainer>
-              <RemoveIcon />
-              <Amount>1</Amount>
-              <AddIcon />
-            </AmountContainer>
-            {/* Add to Cart Button */}
-            <Button className=" px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-800 bg-white hover:bg-gray-50 md:w-auto">ADD TO CART</Button>
-          </AddContainer>
-        </InfoContainer>
-      </Wrapper>
+    <div className="product ">
       
-      <Footer />
-    </Container>
+        <>
+          <div className="left">
+            <div className="images">
+              <img
+                src="https://images.pexels.com/photos/9775769/pexels-photo-9775769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=" BLACK GUY"
+                onClick={(e) => setSelectedImg("img")}
+              />
+              <img
+                src="https://images.pexels.com/photos/9775850/pexels-photo-9775850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=" group of guys"
+                onClick={(e) => setSelectedImg("img2")}
+              />
+            </div>
+            <div className="mainImg">
+              <img
+                src="https://images.pexels.com/photos/9775876/pexels-photo-9775876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+            </div>
+          </div>
+          <div className="right">
+            <h1> {productDetailItem.title}</h1>
+            {/* caterogies  */}
+            <p className="font-bold">
+          Category:{" "}
+          <span className="font-normal">{productDetailItem.category}</span>
+        </p>
+        {/* price  */}
+            <span className="price">${productDetailItem.price}</span>
+             {/* description  */}
+            <p>{productDetailItem.description}</p>
+                       {/* sizes  */}
+             <div className="mt-6">
+          <p className="pb-2 text-xs text-gray-500">Size</p>
+          <div className="flex gap-1">
+            {productDetailItem.size.map((x, index) => {
+              return (
+                <div
+                  key={index}
+                  className="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500"
+                >
+                  {x}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+                    {/* colors */}
+        <div className="mt-6">
+          <p className="pb-2 text-xs text-gray-500">Color</p>
+          <div className="flex gap-1">
+            {productDetailItem.color.map((x, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`h-8 w-8 cursor-pointer border border-white bg-${x}-600 focus:ring-2 focus:ring-${x}-500 active:ring-2 active:ring-${x}-500`}
+                />
+              );
+            })}
+          </div>
+        </div>
+             {/* Quantity */}
+         <div className="quantity">
+              <button
+                onClick={() =>
+                  setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
+                }
+              >
+                -
+              </button>
+              {quantity}
+              <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
+            </div>
+            {/*Buttons to cart and wishlist */}
+            <div className=" flex flex-wrap items-center gap-6">
+            <button className="add flex items-center justify-center font-medium text-green-400 rounded-md gap-2  h-12 w-1/3   duration-100 hover:bg-blue-800">
+              <AddShoppingCartIcon /> ADD TO CART
+            </button>
+            <button className="link   font-medium text-green-400 gap-2    duration-100 hover:bg-green-800">
+              <FavoriteBorderIcon /> ADD TO WISH LIST
+            </button>
+            </div>
+
+            
+            <div className="info">
+              <span>Vendor: Polo</span>
+              <span>Product Type: T-Shirt</span>
+              <span>Tag: T-Shirt, Women, Top</span>
+            </div>
+            <hr />
+            <div className="info">
+              <span>Collection in store   IT'S FREE</span>
+              <hr />
+              <span>Standard home delivery  IT'S FREE</span>
+              <hr />
+              <span>FAQ</span>
+            </div>
+          </div>
+        </>
+      
+    </div>
   );
 };
 

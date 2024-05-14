@@ -1,9 +1,18 @@
 import React from 'react'
-import Herosection from '../../components/Herosection'
+
+import Newsletter from '../../components/Newsletter'
+import PopularCardSlider from '../../components/PopularCardSlider'
+import Categories from '../../components/Categories'
 
 const Home = () => {
   return (
-   <Herosection/>
+    <>
+      
+   < Categories/>
+   <PopularCardSlider/>
+   <Newsletter/>
+    </>
+    
   )
 }
 
