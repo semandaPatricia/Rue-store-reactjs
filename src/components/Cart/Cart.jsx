@@ -1,15 +1,15 @@
 import React from "react";
 import "./Cart.css";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-//import { useSelector } from "react-redux";
-//import { removeItem, resetCart } from "../../redux/cartReducer";
-//import { useDispatch } from "react-redux";
-//import { makeRequest } from "../../makeRequest";
+import { useSelector } from "react-redux";
+import { removeItem, resetCart } from "../../redux/cartReducer";
+import { useDispatch } from "react-redux";
+import { makeRequest } from "../../makeRequest";
 //import { loadStripe } from "@stripe/stripe-js";
 
 const Cart = () => {
-  //const products = useSelector((state) => state.cart.products);
-  //const dispatch = useDispatch();
+  const products = useSelector((state) => state.cart.products);
+  const dispatch = useDispatch();
 
   const totalPrice = () => {
     let total = 0;
@@ -49,7 +49,7 @@ const Cart = () => {
           </div>
           <DeleteOutlinedIcon
             className="delete"
-            //onClick={() => dispatch(removeItem(item.id))}
+            onClick={() => dispatch(removeItem(item.id))}
           />
         </div>
       ))}
@@ -58,7 +58,7 @@ const Cart = () => {
         <span>${totalPrice()}</span>
       </div>
       <button onClick={''}>PROCEED TO CHECKOUT</button>
-      <span className="reset" >
+      <span className="reset" onClick={() => dispatch(resetCart())}>
         Reset Cart
       </span>
     </div>
